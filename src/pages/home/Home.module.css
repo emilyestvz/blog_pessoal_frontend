@@ -1,0 +1,25 @@
+/* Estilos para a div principal */
+.homeContainer {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  /* Estilização do botão */
+.postButton {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    transition: all 0.4s ease-in-out;
+    transform: scale(1);
+    overflow: hidden;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &:active {
+        background-color: #2e2e2e;
+    }
+}

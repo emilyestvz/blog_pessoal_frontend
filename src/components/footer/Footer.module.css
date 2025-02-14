@@ -1,0 +1,18 @@
+.postButton {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    transition: all 0.4s ease-in-out;
+    transform: scale(1);
+    overflow: hidden;
+
+    &:hover {
+        transform: scale(1.1);
+        color: #A87C7C;
+        cursor: pointer;
+    }
+
+    &:active {
+        background-color: #503C3C;
+    }
+}

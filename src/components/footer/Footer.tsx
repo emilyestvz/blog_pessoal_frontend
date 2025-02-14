@@ -1,5 +1,6 @@
 import { LinkedinLogo } from '@phosphor-icons/react/dist/ssr'
 import { GithubLogo } from '@phosphor-icons/react/dist/ssr/GithubLogo'
+import styles from './Footer.module.css'
 
 const Footer = () => {
   return (
@@ -9,10 +10,10 @@ const Footer = () => {
         
 
             <div className='flex gap-2'>
-                <a href='https://github.com/emilyestvz' target='_blank' rel='noopener'>
+                <a className={styles.postButton} href='https://github.com/emilyestvz' target='_blank' rel='noopener'>
                     <GithubLogo size={32} />
                 </a>
-                <a href='https://www.linkedin.com/in/emilycristinydias/' target='_blank' rel='noopener'>
+                <a className={styles.postButton} href='https://www.linkedin.com/in/emilycristinydias/' target='_blank' rel='noopener'>
                     <LinkedinLogo size={32} />
                 </a>
             </div>
