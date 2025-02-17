@@ -1,11 +1,18 @@
 @import "tailwindcss";
 @tailwind utilities;
 
+/*Variáveis de paleta de cores*/
+:root {
+    --custom-gray: #2e2e2e;
+    --custom-gray-dark: #191919;
+    --custom-brown: #503C3C;
+  }
+
 body {
     font-family: 'Poppins', sans-serif;
 }
 
-.bg-img {
+.homeImg {
     background-image: url('https://ik.imagekit.io/emy/Backgrounds/bg2.avif?updatedAt=1739659702448');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -13,7 +20,19 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
     background-size: 100%;
     background-position: center;
-    
 }
 
+button {
+    background-color: var(--custom-gray-dark);
+    color: white;
+    cursor: pointer;
+    
+
+    &:hover {
+        background-color: var(--custom-brown);
+        transition: all 0.4s ease-in-out;
+        transform: scale(1);
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    }
+}
 

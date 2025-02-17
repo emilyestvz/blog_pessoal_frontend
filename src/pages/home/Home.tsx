@@ -1,11 +1,11 @@
 import { useState } from "react";
-import styles from "./Home.module.css"; // Importando o CSS Module
+import styles from "./Home.module.css"; 
 
 const Home = () => {
   const [isHover, setIsHover] = useState(false);
 
   return (
-    <div className={`${styles.homeContainer} responsive-container bg-img`}>
+    <div className={`${styles.homeContainer} responsive-container homeImg`}>
 
       <div className="container grid grid-cols-2 text-gray-100 selection:bg-black selection:text-gray-400">
         <div className="flex flex-col justify-center gap-4 py-4 p-6">
