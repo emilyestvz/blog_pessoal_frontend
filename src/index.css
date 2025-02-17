@@ -1,11 +1,12 @@
 @import "tailwindcss";
+@tailwind utilities;
 
 body {
     font-family: 'Poppins', sans-serif;
 }
 
 .bg-img {
-    background-image: url('./assets/bg2.avif');
+    background-image: url('https://ik.imagekit.io/emy/Backgrounds/bg2.avif?updatedAt=1739659702448');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-blend-mode: overlay;
