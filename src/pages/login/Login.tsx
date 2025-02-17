@@ -4,16 +4,15 @@ import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import UsuarioLogin from '../../models/UsuarioLogin';
 import { AuthContext } from '../../contexts/AuthContext';
-import { login } from '../../services/Service';
 
 const Login = () => {
     // Hooks
     const navigate = useNavigate()
 
     // States
-    const { usuario, handleLogin, isLoading } = useContext(AuthContext)
-
     const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({} as UsuarioLogin)
+    
+    const { usuario, handleLogin, isLoading } = useContext(AuthContext)
 
     // Função para atualizar o estado do formulário
     const atualizarEstado = (e: ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +32,8 @@ const Login = () => {
         e.preventDefault()
         handleLogin(usuarioLogin)
     }
-
+    
+    console.log(JSON.stringify(usuarioLogin))
       
   return (
     <>
@@ -52,7 +52,7 @@ const Login = () => {
                             placeholder='Usuario'
                             className='border-2 border-slate-700 rounded p-2'
                             value={usuarioLogin.usuario}
-                            onChange={atualizarEstado}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
                     <div className='flex flex-col w-full'>
@@ -64,14 +64,14 @@ const Login = () => {
                             placeholder='Senha'
                             className='border-2 border-slate-700 rounded p-2'
                             value={usuarioLogin.senha}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado}/>
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
                     </div>
 
                     {/* Botão para Entrar com Carregamento de animação */}
                     <button 
                         type='submit'
                         className='rounded flex justify-center
-                                   hover:custom-gray transition-colors text-white w-1/2 py-2'>
+                        hover:custom-gray transition-colors text-white w-1/2 py-2'>
                         {isLoading?
                             <LineWave
                             visible={true}

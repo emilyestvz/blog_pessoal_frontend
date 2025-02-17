@@ -12,7 +12,7 @@ const Navbar = () => {
   const logout = () => {
     handleLogout()
     navigate('/')
-    alert('')
+    alert('Error')
   }
   return (
     <nav className="text-gray-100 p-4 fixed w-full" style={{backgroundColor: '#0F0F0F'}}>
