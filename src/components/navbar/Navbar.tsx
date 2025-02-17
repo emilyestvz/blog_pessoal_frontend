@@ -1,8 +1,19 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import styles from './Nav.module.css'
+import { useContext } from "react"
+import { AuthContext } from "../../contexts/AuthContext"
 
 const Navbar = () => {
 
+  const navigate = useNavigate()
+
+  const { handleLogout } = useContext(AuthContext)
+
+  const logout = () => {
+    handleLogout()
+    navigate('/')
+    alert('')
+  }
   return (
     <nav className="text-gray-100 p-4 fixed w-full" style={{backgroundColor: '#0F0F0F'}}>
       <div className="flex justify-between items-center">
@@ -16,7 +27,7 @@ const Navbar = () => {
           <Link to="/temas" className={styles.postButton}>Temas</Link>
           <Link to="/cadastrar" className={styles.postButton}>Cadastrar temas</Link>
           <Link to="/perfil" className={styles.postButton}>Perfil</Link>
-          <Link to="/login" className={styles.postButton}>Sair</Link>
+          <Link to="" onClick={logout} className={styles.postButton}>Sair</Link>
         </p>
 
       </div>

@@ -1,18 +1,47 @@
 import { LineWave } from 'react-loader-spinner'
 import './Login.css'
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import UsuarioLogin from '../../models/UsuarioLogin';
+import { AuthContext } from '../../contexts/AuthContext';
+import { login } from '../../services/Service';
 
 const Login = () => {
+    // Hooks
+    const navigate = useNavigate()
 
     // States
-      const [isLoading, setIsLoading] = useState<boolean>(false);
+    const { usuario, handleLogin, isLoading } = useContext(AuthContext)
+
+    const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({} as UsuarioLogin)
+
+    // Função para atualizar o estado do formulário
+    const atualizarEstado = (e: ChangeEvent<HTMLInputElement>) => {
+        setUsuarioLogin({...usuarioLogin, [e.target.name]: e.target.value })
+    }
+    
+    // Função para verificar se o formulário está carregando
+    useEffect(() => {
+        if(usuario.token !== ''){
+            navigate('/home')
+        }
+    }, [usuario])
+
+
+    // Função para enviar os dados do formulário
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        handleLogin(usuarioLogin)
+    }
+
       
   return (
     <>
         {/* Form Login */}
       <div className='grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold'>
-                <form className='flex justify-center items-center flex-col w-1/2 gap-4'>
+
+                <form className='flex justify-center items-center flex-col w-1/2 gap-4'
+                onSubmit={handleSubmit}>
                     <h2 className='text-slate-900 text-5xl'>Entrar</h2>
                     <div className='flex flex-col w-full'>
                         <label htmlFor='usuario'>Usuário:</label>
@@ -22,6 +51,8 @@ const Login = () => {
                             name='usuario'
                             placeholder='Usuario'
                             className='border-2 border-slate-700 rounded p-2'
+                            value={usuarioLogin.usuario}
+                            onChange={atualizarEstado}
                         />
                     </div>
                     <div className='flex flex-col w-full'>
@@ -31,7 +62,9 @@ const Login = () => {
                             id='senha'
                             name='senha'
                             placeholder='Senha'
-                            className='border-2 border-slate-700 rounded p-2'/>
+                            className='border-2 border-slate-700 rounded p-2'
+                            value={usuarioLogin.senha}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado}/>
                     </div>
 
                     {/* Botão para Entrar com Carregamento de animação */}
