@@ -31,7 +31,7 @@ const CardPost = ({ postagem }: CardPostProps) => {
             </div>
 
             <div className='flex'>
-                <Link to='' className='button-edit w-full text-white flex items-center justify-center py-2'>
+                <Link to={`/editarpostagem/${postagem.id}`} className='button-edit w-full text-white flex items-center justify-center py-2'>
                     <button>Editar</button>
                 </Link>
                 <Link to='' className='text-white button-del w-full flex items-center justify-center'>

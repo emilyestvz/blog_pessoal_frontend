@@ -1,11 +1,9 @@
-.fundoLogin {
-    background-image: url('https://ik.imagekit.io/emy/Backgrounds/window.webp?updatedAt=1739810225755');
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.7);
-}
+/*Efeito hover em background de Form para Login*/
 
+.formLogin__bg {
+    border: black solid 1px;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}

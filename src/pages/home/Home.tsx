@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Home.module.css"; 
 import ListaPost from "../../components/postagens/listaPost/ListaPost";
+import ModalPost from "../../components/postagens/modalPost/ModalPost";
 
 const Home = () => {
   const [isHover, setIsHover] = useState(false);
@@ -20,13 +21,8 @@ const Home = () => {
             </p>
 
             <div className="flex justify-around gap-4">
-              <div
-                className={styles.postButton}
-                style={{ backgroundColor: isHover ? "#503C3C" : "#191919" }}
-                onMouseEnter={() => setIsHover(true)}
-                onMouseLeave={() => setIsHover(false)}
-              >
-                Nova Postagem
+              <div className='flex justify-around gap-4'>
+                <ModalPost />
               </div>
             </div>
           </div>

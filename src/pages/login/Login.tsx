@@ -38,31 +38,33 @@ const Login = () => {
   return (
     <>
         {/* Form Login */}
-      <div className='grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold'>
+      <div className=' backgroundImg flex items-center justify-center h-screen font-bold text-amber-50'>
 
-                <form className='flex justify-center items-center flex-col w-1/2 gap-4'
+                <form className='formLogin__bg class__extra flex flex-col w-full max-w-md gap-4 p-6 bg-white rounded shadow'
                 onSubmit={handleSubmit}>
-                    <h2 className='text-slate-900 text-5xl'>Entrar</h2>
-                    <div className='flex flex-col w-full'>
-                        <label htmlFor='usuario'>Usuário:</label>
+
+                    <h2 className='text-center text-5xl'>Entrar</h2>
+                    <div className='flex flex-col w-full font-medium'>
+                        <label htmlFor='usuario'>Usuário</label>
                         <input
                             type='text'
                             id='usuario'
                             name='usuario'
-                            placeholder='Usuario'
-                            className='border-2 border-slate-700 rounded p-2'
+                            placeholder='Digite o seu usuário'
+                            className='border-2 border-neutral-950 rounded p-2 font-light'
                             value={usuarioLogin.usuario}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
-                    <div className='flex flex-col w-full'>
-                        <label htmlFor='senha'>Senha:</label>
+
+                    <div className='flex flex-col w-full font-medium'>
+                        <label htmlFor='senha'>Senha</label>
                         <input
                             type='password'
                             id='senha'
                             name='senha'
-                            placeholder='Senha'
-                            className='border-2 border-slate-700 rounded p-2'
+                            placeholder='Digite sua senha'
+                            className='border-2 border-neutral-950 rounded p-2 font-light'
                             value={usuarioLogin.senha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
                     </div>
@@ -70,8 +72,8 @@ const Login = () => {
                     {/* Botão para Entrar com Carregamento de animação */}
                     <button 
                         type='submit'
-                        className='button-config rounded flex justify-center
-                        hover:custom-gray transition-colors text-white w-1/2 py-2'>
+                        className='button-config rounded flex justify-center 
+                        hover:custom-gray transition-colors text-white w-1/2 py-2 self-center'>
                         {isLoading?
                             <LineWave
                             visible={true}
@@ -89,16 +91,16 @@ const Login = () => {
                     </button>
 
                     {/* Borda de separação */}
-                    <hr className='border-slate-800 w-full' />
+                    <hr className='border-neutral-950 w-full' />
 
                     {/* Link para cadastro */}
-                    <p>
+                    <p className='text-center'>
                         Ainda não tem uma conta?{' '}
-                        <Link to='/cadastro' className='text-red-900 hover:underline'>
+                        <Link to='/cadastro' className='text-red-400 hover:underline'>
                         Cadastre-se</Link>
                     </p>
                 </form>
-                <div className='fundoLogin block w-full h-full'></div>
+                {/* <div className='fundoLogin block w-full h-full'></div> */}
             </div>
     </>
   )

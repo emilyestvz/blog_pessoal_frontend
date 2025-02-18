@@ -17,6 +17,10 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.class__extra {
+    background-color: #000000;
+}
+
 .backgroundImg {
     background-image: url('https://ik.imagekit.io/emy/Backgrounds/bg2.avif?updatedAt=1739659702448');
     background-repeat: no-repeat;
@@ -37,7 +41,7 @@ body {
     &:hover {
         background-color: var(--custom-brown);
         transition: all 0.4s ease-in-out;
-        transform: scale(1);
+        transform: scale(1.1);
         box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     }
 }
