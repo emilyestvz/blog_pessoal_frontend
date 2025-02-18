@@ -38,23 +38,27 @@ const Cadastro = () => {
     });
   }
 
-  const handleConfirmarSenha = () => {
-    return confirmarSenha === usuario.senha;
+  const handleConfirmarSenha = (e: ChangeEvent<HTMLInputElement>) => {
+    return setConfirmarSenha(e.target.value);
   }
 
   async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>){
     e.preventDefault();
+
     if(confirmarSenha === usuario.senha && usuario.senha.length >= 8){
       setIsLoading(true);
+
       try {
         await cadastrarUsuario('/usuarios/cadastrar', usuario, setUsuario)
-        alert('Usuário cadastrado com sucesso!')
+        alert('Usuário cadastrado com sucesso! ✨')
+
       } catch(error) {
-        alert('Ocorreu um erro ao cadastrar o usuário.');
+        alert('Ocorreu um erro ao cadastrar o usuário. ❌');
         setIsLoading(false);
       }
+
     } else {
-      alert('Senha inválida ou não confere.');
+      alert('Senha inválida ou não confere. ❌');
       setUsuario({...usuario, senha:''});
       setConfirmarSenha('');
     }
@@ -87,6 +91,7 @@ const Cadastro = () => {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               />
             </div>
+
             <div className='flex flex-col w-full'>
               <label htmlFor='usuario'>Usuario:</label>
               <input
@@ -99,6 +104,7 @@ const Cadastro = () => {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               />
             </div>
+
             <div className='flex flex-col w-full'>
               <label htmlFor='foto'>Foto:</label>
               <input
@@ -111,6 +117,7 @@ const Cadastro = () => {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               />
             </div>
+
             <div className='flex flex-col w-full'>
               <label htmlFor='senha'>Senha:</label>
               <input
@@ -123,6 +130,7 @@ const Cadastro = () => {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               />
             </div>
+
             <div className='flex flex-col w-full'>
               <label htmlFor='confirmarSenha'>Confirme sua senha:</label>
               <input
@@ -145,15 +153,14 @@ const Cadastro = () => {
               
               <button type='submit'
                   className='button-config rounded text-white w-1/2 py-2 flex justify-center'>
-                    {isLoading?
+                    {isLoading ? (
                       <RotatingLines
                       strokeColor="white"
                       strokeWidth="5"
                       animationDuration="0.75"
                       width="24"
                       visible={true}/> 
-                    :
-                    <span>Cadastrar</span>}
+                    ) : (<span>Cadastrar</span>)}
               </button>
             </div>
           </form>

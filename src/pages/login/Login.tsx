@@ -75,15 +75,15 @@ const Login = () => {
                         {isLoading?
                             <LineWave
                             visible={true}
-                            height="100"
-                            width="100"
-                            color="#4fa94d"
-                            ariaLabel="line-wave-loading"
+                            height='100'
+                            width='100'
+                            color='#0F0F0F'
+                            ariaLabel='line-wave-loading'
                             wrapperStyle={{}}
-                            wrapperClass=""
-                            firstLineColor=""
-                            middleLineColor=""
-                            lastLineColor=""/>
+                            wrapperClass=''
+                            firstLineColor=''
+                            middleLineColor=''
+                            lastLineColor=''/>
                             :
                             <span>Entrar</span>}
                     </button>
@@ -94,7 +94,7 @@ const Login = () => {
                     {/* Link para cadastro */}
                     <p>
                         Ainda não tem uma conta?{' '}
-                        <Link to="/cadastro" className="text-red-900 hover:underline">
+                        <Link to='/cadastro' className='text-red-900 hover:underline'>
                         Cadastre-se</Link>
                     </p>
                 </form>

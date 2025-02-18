@@ -14,11 +14,11 @@ function App() {
       <> 
             <Navbar />
 
-            <div className="min-h-[87.5vh]">
+            <div className='min-h-[73.5vh]'>
               <Routes>
                 <Route path='/' element={<Login />} />     {/* Definimos o Componente Home como o primeiro Componente que será renderizado.*/}
-                <Route path='/home' element={<Home />} /> 
                 <Route path='/login' element={<Login />} />   {/* Esta rota será a rota padrão do Componente Login*/ }
+                <Route path='/home' element={<Home />} /> 
                 <Route path='/cadastro' element={<Cadastro />} />
                 <Route path="/temas" element={<ListaTemas />} />
                 <Route path="/cadastrartemas" element={<FormTemas />} />
