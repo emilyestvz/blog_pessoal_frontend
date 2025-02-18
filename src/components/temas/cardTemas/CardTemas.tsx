@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import './CardTemas.css'
 import Tema from "../../../models/Tema";
 
 interface CardTemasProps {
@@ -10,7 +9,7 @@ const CardTemas = ({ tema }: CardTemasProps) => {
 
   return (
     <>
-        <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
+        <div className='border flex flex-col rounded overflow-hidden justify-between'>
             <header className='py-2 px-6 text-white font-bold text-2xl' style={{backgroundColor: '#0F0F0F'}}>
                 Tema
             </header>

@@ -24,6 +24,7 @@ const Navbar = () => {
 
         <p className='flex space-x-8'>
           <Link to='/home' className={styles.postButton}>Home</Link>
+          <Link to='/postagens' className={styles.postButton}>Postagens</Link>
           <Link to='/temas' className={styles.postButton}>Temas</Link>
           <Link to='/cadastrartemas' className={styles.postButton}>Cadastrar temas</Link>
           <Link to='/perfil' className={styles.postButton}>Perfil</Link>

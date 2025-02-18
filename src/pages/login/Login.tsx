@@ -75,9 +75,9 @@ const Login = () => {
                         {isLoading?
                             <LineWave
                             visible={true}
-                            height='100'
-                            width='100'
-                            color='#0F0F0F'
+                            height='50'
+                            width='50'
+                            color='#736262'
                             ariaLabel='line-wave-loading'
                             wrapperStyle={{}}
                             wrapperClass=''
