@@ -138,13 +138,13 @@ const Cadastro = () => {
 
             {/* Botões de Cancelar e Cadastrar */}
             <div className='flex justify-around w-full gap-8'>
-              <button className='rounded text-white w-1/2 py-2'
+              <button className='button-config rounded text-white w-1/2 py-2'
               type='reset' onClick={retornar}>
                 Cancelar
               </button>
               
               <button type='submit'
-                  className='rounded text-white w-1/2 py-2 flex justify-center'>
+                  className='button-config rounded text-white w-1/2 py-2 flex justify-center'>
                     {isLoading?
                       <RotatingLines
                       strokeColor="white"

@@ -12,10 +12,10 @@ const Navbar = () => {
   const logout = () => {
     handleLogout()
     navigate('/')
-    alert('Error')
+    alert('')
   }
   return (
-    <nav className="text-gray-100 p-4 fixed w-full" style={{backgroundColor: '#0F0F0F'}}>
+    <nav className="text-gray-100 p-4 w-full" style={{backgroundColor: '#0F0F0F'}}>
       <div className="flex justify-between items-center">
 
         {/* Logo */}
@@ -25,7 +25,7 @@ const Navbar = () => {
         <p className="flex space-x-8">
           <Link to="/home" className={styles.postButton}>Home</Link>
           <Link to="/temas" className={styles.postButton}>Temas</Link>
-          <Link to="/cadastrar" className={styles.postButton}>Cadastrar temas</Link>
+          <Link to="/cadastrartemas" className={styles.postButton}>Cadastrar temas</Link>
           <Link to="/perfil" className={styles.postButton}>Perfil</Link>
           <Link to="" onClick={logout} className={styles.postButton}>Sair</Link>
         </p>

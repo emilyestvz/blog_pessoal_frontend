@@ -70,7 +70,7 @@ const Login = () => {
                     {/* Botão para Entrar com Carregamento de animação */}
                     <button 
                         type='submit'
-                        className='rounded flex justify-center
+                        className='button-config rounded flex justify-center
                         hover:custom-gray transition-colors text-white w-1/2 py-2'>
                         {isLoading?
                             <LineWave

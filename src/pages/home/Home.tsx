@@ -5,7 +5,7 @@ const Home = () => {
   const [isHover, setIsHover] = useState(false);
 
   return (
-    <div className={`${styles.homeContainer} responsive-container homeImg`}>
+    <div className={`${styles.homeContainer} responsive-container backgroundImg`}>
 
       <div className="container grid grid-cols-2 text-gray-100 selection:bg-black selection:text-gray-400">
         <div className="flex flex-col justify-center gap-4 py-4 p-6">
@@ -17,7 +17,7 @@ const Home = () => {
           <div className="flex justify-around gap-4">
             <div
               className={styles.postButton} 
-              style={{ backgroundColor: isHover ? "#503C3C" : "#191919" }}
+              style={{ backgroundColor: isHover ? '#503C3C' : '#191919' }}
               onMouseEnter={() => setIsHover(true)}
               onMouseLeave={() => setIsHover(false)}
             >

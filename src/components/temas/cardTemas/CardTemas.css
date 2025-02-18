@@ -1,0 +1,35 @@
+:root {
+    --custom-gray: #2e2e2e;
+    --custom-gray-dark: #191919;
+    --custom-brown: #503C3C;
+    --custom-light-brown: #736262;
+    --custom-dark-brown: #3d2b2b;
+    --custom-gray-brown: #424242;
+    --custom-brown-rose: #6d5151;
+  }
+
+.button-edit {
+    background-color: var(--custom-brown);
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--custom-brown-rose);
+        transition: all 0.4s ease-in-out;
+        transform: scale(1.1);
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    }
+ }
+
+.button-del {
+    background-color: var(--custom-gray);
+
+    &:hover {
+        background-color: var(--custom-gray-brown);
+        transition: all 0.4s ease-in-out;
+        transform: scale(1.1);
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    }
+ 
+}

@@ -12,7 +12,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.homeImg {
+.backgroundImg {
     background-image: url('https://ik.imagekit.io/emy/Backgrounds/bg2.avif?updatedAt=1739659702448');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -22,7 +22,7 @@ body {
     background-position: center;
 }
 
-button {
+.button-config {
     background-color: var(--custom-gray-dark);
     color: white;
     cursor: pointer;
