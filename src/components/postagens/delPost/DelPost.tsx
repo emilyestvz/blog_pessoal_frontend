@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { usePostagem } from "../../hooks/usePost";
 
-function DelPost() {
+const DelPost = () => {
     const navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const { usuario } = useContext(AuthContext);
@@ -72,11 +72,11 @@ function DelPost() {
                         disabled={isLoading}>
                         {isLoading ?
                             <RotatingLines
-                                strokeColor="white"
-                                strokeWidth="5"
-                                animationDuration="0.75"
-                                width="24"
-                                visible={true}
+                            strokeColor="white"
+                            strokeWidth="5"
+                            animationDuration="0.75"
+                            width="24"
+                            visible={true}
                             /> :
                             <span>Sim</span>
                         }

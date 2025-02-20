@@ -32,10 +32,10 @@ export function AuthProvider({ children }: AuthProviderProps){
 
         try {
             await login('/usuarios/login', usuarioLogin, setUsuario)
-            alert('O usuário foi autentificado com sucesso!')
+            alert('O usuário foi autentificado com sucesso! 🎉')
         } catch (error) {
             console.error('Erro ao fazer login:', error);
-            alert('Ocorreu um erro ao tentar fazer login.')
+            alert('Ocorreu um erro ao tentar fazer login. ❌')
     }
 
     setIsLoading(false)
