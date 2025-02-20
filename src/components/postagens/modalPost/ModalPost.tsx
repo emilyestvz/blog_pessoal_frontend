@@ -2,8 +2,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './ModalPost.css'
 import FormPost from '../formPost/FormPost';
-
-function ModalPost() {
+const ModalPost = () => {
     return (
         <>
             <Popup

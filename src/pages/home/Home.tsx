@@ -4,7 +4,6 @@ import ListaPost from "../../components/postagens/listaPost/ListaPost";
 import ModalPost from "../../components/postagens/modalPost/ModalPost";
 
 const Home = () => {
-  const [isHover, setIsHover] = useState(false);
 
   return (
     <>

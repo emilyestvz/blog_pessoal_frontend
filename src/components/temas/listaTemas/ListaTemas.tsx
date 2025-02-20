@@ -3,7 +3,7 @@ import CardTemas from '../cardTemas/CardTemas'
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Tema from '../../../models/Tema';
-import { DNA } from 'react-loader-spinner';
+import { DNA, MutatingDots } from 'react-loader-spinner';
 import { buscar } from '../../../services/Service';
 
 const ListaTemas = () =>  {
@@ -48,32 +48,34 @@ const ListaTemas = () =>  {
 
     return (
         <>
-        {temas.length === 0 && (
-                <DNA
+            {temas.length === 0 && (
+                <MutatingDots
                     visible={true}
-                    height='200'
-                    width='200'
-                    ariaLabel='dna-loading'
-                    wrapperStyle={{}}
-                    wrapperClass='dna-wrapper mx-auto'
-                />
-            )}
+                    height="100"
+                    width="100"
+                    color="#3d2b2b"
+                    secondaryColor="#6d5151"
+                    radius="12.5"
+                    ariaLabel="mutating-dots-loading"
+                    wrapperStyle={{display: 'grid', placeItems: 'center', height: '100vh'}}
+                    wrapperClass="mutating-dots-wrapper mx-auto"
+                />)}
 
-            <div className='flex justify-center w-full my-4'>
-                <div className='container flex flex-col'>
-                    <div className='grid grid-cols-1 md:grid-cols-2 
-                        lg:grid-cols-3 gap-8'>
+                <div className='flex justify-center w-full my-4'>
+                    <div className='container flex flex-col'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 
+                            lg:grid-cols-3 gap-8'>
 
-                            {/* Esse trecho de código mapeia os elementos do array temas e os renderiza no Componente CardTemas, 
-                            gerando um card para cada tema dentro do Array.
-                            O método map é uma função JavaScript utilizada para processar Arrays */}
-                            {
-                                temas.map((tema) => (
-                                <CardTemas key={tema.id} tema={tema} />
-                            ))}
+                                {/* Esse trecho de código mapeia os elementos do array temas e os renderiza no Componente CardTemas, 
+                                gerando um card para cada tema dentro do Array.
+                                O método map é uma função JavaScript utilizada para processar Arrays */}
+                                {
+                                    temas.map((tema) => (
+                                    <CardTemas key={tema.id} tema={tema} />
+                                ))}
+                        </div>
                     </div>
                 </div>
-            </div>
         </>
     )
 }

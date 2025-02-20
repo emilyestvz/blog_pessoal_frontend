@@ -4,7 +4,7 @@ import Postagem from "../../../models/Postagem";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { buscar } from "../../../services/Service";
-import { DNA } from "react-loader-spinner";
+import { MutatingDots } from "react-loader-spinner";
 
 const ListaPost = () => {
 
@@ -45,14 +45,18 @@ const ListaPost = () => {
     return (
         <>
             {postagens.length === 0 && (
-                    <DNA
-                        visible={true}
-                        height="200"
-                        width="200"
-                        ariaLabel="dna-loading"
-                        wrapperStyle={{}}
-                        wrapperClass="dna-wrapper mx-auto"
-                    />)}
+                <MutatingDots
+                visible={true}
+                height="100"
+                width="100"
+                color="#3d2b2b"
+                secondaryColor="#6d5151"
+                radius="12.5"
+                ariaLabel="mutating-dots-loading"
+                wrapperStyle={{display: 'grid', placeItems: 'center', height: '100vh'}}
+                wrapperClass="mutating-dots-wrapper mx-auto"
+                />)}
+            
 
             <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 
             	lg:grid-cols-3 gap-4'>

@@ -9,6 +9,7 @@ import FormTemas from './components/temas/formTemas/FormTemas'
 import DelTemas from './components/temas/delTemas/DelTemas'
 import ListaPost from './components/postagens/listaPost/ListaPost'
 import FormPost from './components/postagens/formPost/FormPost'
+import DelPost from './components/postagens/delPost/DelPost'
 
 function App() {
   
@@ -28,11 +29,13 @@ function App() {
                 <Route path='/deletartema/:id' element={<DelTemas />} />
                 <Route path='/postagens' element={<ListaPost />} />
                 <Route path='/cadastrarpostagem' element={<FormPost />} />
-                <Route path='/editarpostagem/:id' element={<FormPost />} />
+                <Route path='/editarpost/:id' element={<FormPost />} />
+                <Route path="/deletarpost/:id" element={<DelPost />} />
               </Routes>
             </div>
 
             <Footer />
+            
       </>
   )
 }

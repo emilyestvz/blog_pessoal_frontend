@@ -38,23 +38,23 @@ const Login = () => {
   return (
     <>
         {/* Form Login */}
-      <div className=' backgroundImg flex items-center justify-center h-screen font-bold text-amber-50'>
+      <div className='backgroundImg flex items-center justify-center h-screen font-bold'>
 
                 <form className='formLogin__bg class__extra flex flex-col w-full max-w-md gap-4 p-6 bg-white rounded shadow'
                 onSubmit={handleSubmit}>
 
                     <h2 className='text-center text-5xl'>Entrar</h2>
                     <div className='flex flex-col w-full font-medium'>
+
                         <label htmlFor='usuario'>Usuário</label>
                         <input
                             type='text'
                             id='usuario'
                             name='usuario'
                             placeholder='Digite o seu usuário'
-                            className='border-2 border-neutral-950 rounded p-2 font-light'
+                            className='border-1 border-neutral-950 rounded p-2 font-light bg-neutral-900'
                             value={usuarioLogin.usuario}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                        />
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
                     </div>
 
                     <div className='flex flex-col w-full font-medium'>
@@ -64,7 +64,7 @@ const Login = () => {
                             id='senha'
                             name='senha'
                             placeholder='Digite sua senha'
-                            className='border-2 border-neutral-950 rounded p-2 font-light'
+                            className='border-1 border-neutral-950 rounded p-2 font-light bg-neutral-900'
                             value={usuarioLogin.senha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
                     </div>
@@ -78,7 +78,7 @@ const Login = () => {
                             <LineWave
                             visible={true}
                             height='50'
-                            width='50'
+                            width='200'
                             color='#736262'
                             ariaLabel='line-wave-loading'
                             wrapperStyle={{}}

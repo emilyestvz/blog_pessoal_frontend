@@ -5,6 +5,7 @@ import Postagem from "../../../models/Postagem";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
+import Swal from 'sweetalert2';
 
 const FormPost = () => {
 
@@ -122,7 +123,8 @@ const FormPost = () => {
                     },
                 })
 
-                alert('Postagem cadastrada com sucesso 🥰');
+                //alert('Postagem cadastrada com sucesso 🥰');
+                AlertSuccess();
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
@@ -140,7 +142,7 @@ const FormPost = () => {
     const carregandoTema = tema.descricao === '';
     
     return (
-        <div className='container flex flex-col mx-auto items-center'>
+        <div className='flex flex-col mx-auto items-center'>
             <h1 className='text-4xl text-center my-8'>Cadastrar Postagem</h1>
 
             <form className='flex flex-col w-1/2 gap-4'
@@ -199,12 +201,20 @@ const FormPost = () => {
                          width='24'
                          visible={true}
                          /> :
-                         <span>{id === undefined? 'Atualizar': 'Cadastrar'}</span>
+                         <span>{id === undefined? 'Cadastrar': 'Atualizar'}</span>
                         }
                 </button>
             </form>
         </div>
     );
 }
-
 export default FormPost;
+
+// Alerts
+function AlertSuccess() {
+    Swal.fire({
+        title: "Postagem cadastrada com sucesso!",
+        icon: "success",
+        draggable: true
+      });
+}
