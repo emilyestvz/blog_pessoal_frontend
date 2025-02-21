@@ -4,6 +4,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Tema from '../../../models/Tema';
 import { atualizar, buscar, cadastrar } from '../../../services/Service';
 import { RotatingLines } from 'react-loader-spinner';
+import Swal from 'sweetalert2';
 
 const FormTemas = () =>  {
 
@@ -37,7 +38,7 @@ const FormTemas = () =>  {
     // ele exibirá um alerta e o usuário será redirecionado para a página de login
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado! 💜')
+            Swal.fire('Você precisa estar logado! 💜', '' ,'info')
             navigate('/')
         }
     }, [token])
@@ -60,41 +61,29 @@ const FormTemas = () =>  {
         navigate('/temas')
     }
 
-    const gerarNovoTema = (e: ChangeEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        setIsLoading(true)
-
-        if (id !== undefined) {
-            try {
-                atualizar(`/temas`, tema, setTema, {
-                    headers: { 'Authorization': token }
-                })
-                alert('O Tema foi atualizado com sucesso! 💜')
-            } catch (error: any) {
-                if (error.toString().includes('403')) {
-                    handleLogout();
-                } else {
-                    alert('Erro ao atualizar o tema.')
-                }
-
+    const gerarNovoTema = async (e: ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsLoading(true);
+    
+        const url = id !== undefined ? `/temas` : `/temas`;
+        const metodo = id !== undefined ? atualizar : cadastrar;
+        const mensagemSucesso = id !== undefined ? 'atualizado' : 'cadastrado';
+    
+        try {
+            await metodo(url, tema, setTema, {
+                headers: { 'Authorization': token }
+            });
+            Swal.fire(`O tema foi ${mensagemSucesso} com sucesso!`, '', 'success');
+        } catch (error: any) {
+            if (error.toString().includes('403')) {
+                handleLogout();
+            } else {
+                Swal.fire(`Erro ao ${mensagemSucesso} o tema.`, '', 'error');
             }
-        } else {
-            try {
-                cadastrar(`/temas`, tema, setTema, {
-                    headers: { 'Authorization': token }
-                })
-                alert('O Tema foi cadastrado com sucesso! 💜')
-            } catch (error: any) {
-                if (error.toString().includes('403')) {
-                    handleLogout();
-                } else {
-                    alert('Erro ao cadastrar o tema.')
-                }
-
-            }
+        } finally {
+            setIsLoading(false);
         }
-
-        setIsLoading(false)
+        
         retornar()
     }
 

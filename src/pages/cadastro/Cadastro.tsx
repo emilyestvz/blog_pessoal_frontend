@@ -4,6 +4,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import Usuario from '../../models/Usuario';
 import { cadastrarUsuario } from '../../services/Service';
 import { RotatingLines } from 'react-loader-spinner';
+import Swal from 'sweetalert2';
 
 const Cadastro = () => {
   // Hook
@@ -50,15 +51,15 @@ const Cadastro = () => {
 
       try {
         await cadastrarUsuario('/usuarios/cadastrar', usuario, setUsuario)
-        alert('Usuário cadastrado com sucesso! ✨')
+        Swal.fire('Usuário cadastrado com sucesso! ✨', '', 'success')
 
       } catch(error) {
-        alert('Ocorreu um erro ao cadastrar o usuário. ❌');
+        Swal.fire('Ocorreu um erro ao cadastrar o usuário. ❌', '', 'warning');
         setIsLoading(false);
       }
 
     } else {
-      alert('Senha inválida ou não confere. ❌');
+      Swal.fire('Senha inválida ou não confere. ❌', '', 'error');
       setUsuario({...usuario, senha:''});
       setConfirmarSenha('');
     }

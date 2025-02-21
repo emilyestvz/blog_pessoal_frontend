@@ -5,6 +5,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Tema from '../../../models/Tema';
 import { DNA, MutatingDots } from 'react-loader-spinner';
 import { buscar } from '../../../services/Service';
+import Swal from 'sweetalert2';
 
 const ListaTemas = () =>  {
 
@@ -40,7 +41,7 @@ const ListaTemas = () =>  {
     // E para o Token
     useEffect(() => {
         if(token === ''){
-            alert('Você precisa estar logado! 🔮')
+            Swal.fire('Você precisa estar logado!', '', 'info')
             navigate('/');
         }
     }, [token]);

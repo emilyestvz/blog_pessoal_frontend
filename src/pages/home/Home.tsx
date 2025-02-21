@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./Home.module.css"; 
 import ListaPost from "../../components/postagens/listaPost/ListaPost";
 import ModalPost from "../../components/postagens/modalPost/ModalPost";

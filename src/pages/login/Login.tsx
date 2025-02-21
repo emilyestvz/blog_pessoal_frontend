@@ -4,6 +4,7 @@ import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import UsuarioLogin from '../../models/UsuarioLogin';
 import { AuthContext } from '../../contexts/AuthContext';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     // Hooks
@@ -77,15 +78,11 @@ const Login = () => {
                         {isLoading?
                             <LineWave
                             visible={true}
-                            height='50'
-                            width='200'
+                            height='25'
+                            width=''
                             color='#736262'
                             ariaLabel='line-wave-loading'
-                            wrapperStyle={{}}
-                            wrapperClass=''
-                            firstLineColor=''
-                            middleLineColor=''
-                            lastLineColor=''/>
+                            wrapperStyle={{}}/>
                             :
                             <span>Entrar</span>}
                     </button>
@@ -105,5 +102,5 @@ const Login = () => {
     </>
   )
 }
-
 export default Login
+

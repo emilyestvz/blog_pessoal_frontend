@@ -1,6 +1,7 @@
 import UsuarioLogin from "../models/UsuarioLogin";
 import { createContext, useState } from "react";
 import { login } from "../services/Service";
+import Swal from "sweetalert2";
 
 interface AuthContextProps {
     usuario: UsuarioLogin
@@ -32,10 +33,10 @@ export function AuthProvider({ children }: AuthProviderProps){
 
         try {
             await login('/usuarios/login', usuarioLogin, setUsuario)
-            alert('O usuário foi autentificado com sucesso! 🎉')
+            Swal.fire('O usuário foi autentificado com sucesso! 🎉', '', 'success')
         } catch (error) {
             console.error('Erro ao fazer login:', error);
-            alert('Ocorreu um erro ao tentar fazer login. ❌')
+            Swal.fire('Ocorreu um erro ao tentar fazer login. ', '', 'error')
     }
 
     setIsLoading(false)

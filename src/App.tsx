@@ -10,6 +10,7 @@ import DelTemas from './components/temas/delTemas/DelTemas'
 import ListaPost from './components/postagens/listaPost/ListaPost'
 import FormPost from './components/postagens/formPost/FormPost'
 import DelPost from './components/postagens/delPost/DelPost'
+import Perfil from './pages/perfil/Perfil'
 
 function App() {
   
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/cadastrarpostagem' element={<FormPost />} />
                 <Route path='/editarpost/:id' element={<FormPost />} />
                 <Route path="/deletarpost/:id" element={<DelPost />} />
+                <Route path="/perfil" element={<Perfil />} />
               </Routes>
             </div>
 
