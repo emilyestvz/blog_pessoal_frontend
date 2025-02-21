@@ -4,7 +4,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Tema from '../../../models/Tema';
 import { atualizar, buscar, cadastrar } from '../../../services/Service';
 import { RotatingLines } from 'react-loader-spinner';
-import Swal from 'sweetalert2';
+import { ToastAlert } from '../../../utils/ToastAlert';
 
 const FormTemas = () =>  {
 
@@ -38,7 +38,7 @@ const FormTemas = () =>  {
     // ele exibirá um alerta e o usuário será redirecionado para a página de login
     useEffect(() => {
         if (token === '') {
-            Swal.fire('Você precisa estar logado! 💜', '' ,'info')
+            ToastAlert('Você precisa estar logado! 💜','info')
             navigate('/')
         }
     }, [token])
@@ -73,12 +73,12 @@ const FormTemas = () =>  {
             await metodo(url, tema, setTema, {
                 headers: { 'Authorization': token }
             });
-            Swal.fire(`O tema foi ${mensagemSucesso} com sucesso!`, '', 'success');
+            ToastAlert(`O tema foi ${mensagemSucesso} com sucesso!`, 'sucesso');
         } catch (error: any) {
             if (error.toString().includes('403')) {
                 handleLogout();
             } else {
-                Swal.fire(`Erro ao ${mensagemSucesso} o tema.`, '', 'error');
+                ToastAlert(`Erro ao ${mensagemSucesso} o tema.`, 'erro');
             }
         } finally {
             setIsLoading(false);

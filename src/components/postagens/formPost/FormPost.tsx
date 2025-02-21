@@ -6,6 +6,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
 import Swal from 'sweetalert2';
+import { ToastAlert } from "../../../utils/ToastAlert";
 
 const FormPost = () => {
 
@@ -60,7 +61,7 @@ const FormPost = () => {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            ToastAlert('Você precisa estar logado', 'info');
             navigate('/');
         }
     }, [token])
@@ -105,13 +106,13 @@ const FormPost = () => {
                     },
                 });
 
-                alert('Postagem atualizada com sucesso 🎉')
+                ToastAlert('Postagem atualizada com sucesso 🎉', 'sucesso')
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar a Postagem ❌')
+                    ToastAlert('Erro ao atualizar a Postagem.', 'erro')
                 }
             }
 
@@ -130,7 +131,7 @@ const FormPost = () => {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar a Postagem ❌');
+                    ToastAlert('Erro ao cadastrar a Postagem', 'erro');
                 }
             }
         }

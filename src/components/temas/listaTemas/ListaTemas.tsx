@@ -3,9 +3,9 @@ import CardTemas from '../cardTemas/CardTemas'
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Tema from '../../../models/Tema';
-import { DNA, MutatingDots } from 'react-loader-spinner';
+import { MutatingDots } from 'react-loader-spinner';
 import { buscar } from '../../../services/Service';
-import Swal from 'sweetalert2';
+import { ToastAlert } from '../../../utils/ToastAlert';
 
 const ListaTemas = () =>  {
 
@@ -41,7 +41,7 @@ const ListaTemas = () =>  {
     // E para o Token
     useEffect(() => {
         if(token === ''){
-            Swal.fire('Você precisa estar logado!', '', 'info')
+            ToastAlert('Você precisa estar logado!', 'info')
             navigate('/');
         }
     }, [token]);

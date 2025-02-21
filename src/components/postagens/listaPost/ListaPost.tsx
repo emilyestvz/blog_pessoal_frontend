@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { buscar } from '../../../services/Service';
 import { MutatingDots } from 'react-loader-spinner';
-import Swal from 'sweetalert2';
+import { ToastAlert } from '../../../utils/ToastAlert';
 
 const ListaPost = () => {
 
@@ -36,14 +36,14 @@ const ListaPost = () => {
                 handleLogout()
             } else {
                 console.error('Erro na requisição:', error);
-                Swal.fire('Erro', 'Erro ao carregar as postagens', 'error');
+                ToastAlert('Erro ao carregar as postagens', 'error');
             }
         }
     }
 
     useEffect(() => {
         if (!token) {
-            Swal.fire('Você precisa estar logado!', '', 'info')
+            ToastAlert('Você precisa estar logado!','info')
             navigate('/');
         }
     }, [token])

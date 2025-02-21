@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { RotatingLines } from "react-loader-spinner";
-import { AuthContext } from "../../../contexts/AuthContext";
-import { useContext } from "react";
-import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-import { usePostagem } from "../../hooks/usePost";
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { RotatingLines } from 'react-loader-spinner';
+import { AuthContext } from '../../../contexts/AuthContext';
+import { useContext } from 'react';
+import { usePostagem } from '../../hooks/usePost';
+import { ToastAlert } from '../../../utils/ToastAlert';
+import { toast } from 'react-toastify';
 
 const DelPost = () => {
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ const DelPost = () => {
 
     useEffect(() => {
         if (usuario.token === '') {
-            toast.warn('Você precisa estar logado 🔮');
+            ToastAlert('Você precisa estar logado 🔮', 'info');
             navigate('/');
         } else if (id !== undefined) {
             buscarPorId(id);
@@ -27,21 +27,21 @@ const DelPost = () => {
             try {
                 const sucesso = await deletarPostagem(id);
                 if (sucesso) {
-                    toast.success('Postagem apagada com sucesso ✨');
-                    navigate("/postagens");
+                    ToastAlert('Postagem apagada com sucesso ✨', 'sucesso');
+                    navigate('/postagens');
                 }
             } catch (error) {
               if (error instanceof Error) {
                 toast.error(error.message); // Acesso seguro à propriedade message
             } else {
-                toast.error("Ocorreu um erro inesperado.");
+                toast.error('Ocorreu um erro inesperado.');
             }
             }
         }
     };
 
     const retornar = () => {
-        navigate("/postagens");
+        navigate('/postagens');
     };
 
     return (
@@ -56,11 +56,11 @@ const DelPost = () => {
                 <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'  style={{backgroundColor: '#0F0F0F'}}>
                     Postagem
                 </header>
-                <div className="p-4">
+                <div className='p-4'>
                     <p className='text-xl h-full'>{postagem.titulo}</p>
                     <p>{postagem.texto}</p>
                 </div>
-                <div className="flex">
+                <div className='flex'>
                     <button
                         className='text-slate-100 bg-red-950 hover:bg-red-900 w-full py-2'
                         onClick={retornar}>
@@ -72,10 +72,10 @@ const DelPost = () => {
                         disabled={isLoading}>
                         {isLoading ?
                             <RotatingLines
-                            strokeColor="white"
-                            strokeWidth="5"
-                            animationDuration="0.75"
-                            width="24"
+                            strokeColor='white'
+                            strokeWidth='5'
+                            animationDuration='0.75'
+                            width='24'
                             visible={true}
                             /> :
                             <span>Sim</span>

@@ -4,7 +4,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Tema from '../../../models/Tema';
 import { buscar, deletar } from '../../../services/Service';
 import { RotatingLines } from 'react-loader-spinner';
-import Swal from 'sweetalert2';
+import { ToastAlert } from '../../../utils/ToastAlert';
 
 const DelTemas = () => {
 
@@ -46,7 +46,7 @@ const DelTemas = () => {
     
     useEffect(() => {
             if (token === '') {
-                Swal.fire('Você precisa estar logado! 💜', '' ,'info')
+                ToastAlert('Você precisa estar logado! 💜' ,'info')
                 navigate('/')
             }
         }, [token])
@@ -59,12 +59,12 @@ const DelTemas = () => {
             deletar(`/temas/${id}`, {
                 headers: { 'Authorization': token }
             })
-            Swal.fire('O tema foi apagado com sucesso!', '' ,'success')
+            ToastAlert('O tema foi apagado com sucesso!','success')
         } catch(error: any) {
             if (error.toString().includes('401')) {
                 handleLogout()
             } else {
-                Swal.fire('Erro ao excluir o tema.', '' ,'error')
+                ToastAlert('Erro ao excluir o tema.','error')
             }
         }
 

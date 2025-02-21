@@ -4,7 +4,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import Usuario from '../../models/Usuario';
 import { cadastrarUsuario } from '../../services/Service';
 import { RotatingLines } from 'react-loader-spinner';
-import Swal from 'sweetalert2';
+import { ToastAlert } from '../../utils/ToastAlert';
 
 const Cadastro = () => {
   // Hook
@@ -51,15 +51,15 @@ const Cadastro = () => {
 
       try {
         await cadastrarUsuario('/usuarios/cadastrar', usuario, setUsuario)
-        Swal.fire('Usuário cadastrado com sucesso! ✨', '', 'success')
+        ToastAlert('Usuário cadastrado com sucesso! ✨', 'sucesso')
 
       } catch(error) {
-        Swal.fire('Ocorreu um erro ao cadastrar o usuário. ❌', '', 'warning');
+        ToastAlert('Ocorreu um erro ao cadastrar o usuário. ❌', 'erro');
         setIsLoading(false);
       }
 
     } else {
-      Swal.fire('Senha inválida ou não confere. ❌', '', 'error');
+      ToastAlert('Senha inválida ou não confere. ❌', 'erro');
       setUsuario({...usuario, senha:''});
       setConfirmarSenha('');
     }

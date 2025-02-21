@@ -11,11 +11,14 @@ import ListaPost from './components/postagens/listaPost/ListaPost'
 import FormPost from './components/postagens/formPost/FormPost'
 import DelPost from './components/postagens/delPost/DelPost'
 import Perfil from './pages/perfil/Perfil'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   
   return (
-      <> 
+      <>  
+            <ToastContainer />
             <Navbar />
 
             <div className='min-h-[73.5vh]'>
