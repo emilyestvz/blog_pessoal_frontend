@@ -27,8 +27,8 @@ const CardPost = ({ postagem }: CardPostProps) => {
                 <div className='p-4'>
                     <h4 className='text-lg font-semibold uppercase'>{postagem.titulo}</h4>
                     <p>{postagem.texto}</p>
-                    <p>Tema: {postagem.tema?.descricao}</p>
-                    <p>
+                    <p className='font-semibold'>Tema: {postagem.tema?.descricao}</p>
+                    <p className='font-light'>
                         Data: {new Intl.DateTimeFormat(undefined, {
                             dateStyle: 'full',
                             timeStyle: 'medium',
