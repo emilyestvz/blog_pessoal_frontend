@@ -124,8 +124,7 @@ const FormPost = () => {
                     },
                 })
 
-                //alert('Postagem cadastrada com sucesso 🥰');
-                AlertSuccess();
+                ToastAlert('Postagem cadastrada com sucesso 🥰', 'sucesso')
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
@@ -210,12 +209,3 @@ const FormPost = () => {
     );
 }
 export default FormPost;
-
-// Alerts
-function AlertSuccess() {
-    Swal.fire({
-        title: "Postagem cadastrada com sucesso!",
-        icon: "success",
-        draggable: true
-      });
-}
