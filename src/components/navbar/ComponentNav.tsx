@@ -2,7 +2,7 @@ import { ReactNode, useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext"
 import styles from './Nav.module.css'
-import { ToastAlerta } from "../../utils/ToastAlert"
+import { ToastAlert } from "../../utils/ToastAlert"
 
 const Component = () => {
 
@@ -13,7 +13,7 @@ const Component = () => {
     const logout = () => {
   
       handleLogout()
-      ToastAlerta('O usuário foi desconectado.', 'info')
+      ToastAlert('O usuário foi desconectado.', 'info')
       navigate('/')
     }
 
