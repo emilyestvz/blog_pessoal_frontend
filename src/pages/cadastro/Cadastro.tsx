@@ -69,77 +69,80 @@ const Cadastro = () => {
 
   return (
     <>
-      <div className='grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-semibold'>
+      <div className='grid lg:grid-cols-2 place-items-center font-semibold'>
         
         {/* Fundo lateral Esquerda*/}
-        <div className='fundoCadastro hidden lg:block'></div>
+        <div className='fundoCadastro relative hidden bg-muted lg:block'></div>
 
           {/* Formulário de Cadastro */}
-          <form className='flex justify-center items-center flex-col w-2/3 gap-3' 
+          <form className='flex justify-center items-center flex-col gap-3' 
                 onSubmit={cadastrarNovoUsuario}>
 
-            <h2 className='text-slate-900 text-5xl font-medium'>Cadastrar</h2>
-            <div className='flex flex-col w-full'>
+            <h2 className='text-slate-900 text-5xl font-medium'>Crie a sua conta</h2>
+            <p className='font-light text-balance text-sm text-muted-foreground mb-2'>
+              Introduza as suas informações abaixo para criar a sua conta
+            </p>
 
-              <label htmlFor='nome'>Nome:</label>
+            <div className='flex flex-col w-full'>
+              <label htmlFor='nome'>Nome</label>
               <input
                 type='text'
                 id='nome'
                 name='nome'
                 placeholder='Nome'
-                className='border border-slate-700 rounded p-2'
+                className='border border-slate-700 rounded p-2 font-light'
                 value={usuario.nome}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               />
             </div>
 
             <div className='flex flex-col w-full'>
-              <label htmlFor='usuario'>Usuario:</label>
+              <label htmlFor='usuario'>Usuario</label>
               <input
                 type='text'
                 id='usuario'
                 name='usuario'
                 placeholder='Usuario'
-                className='border border-slate-700 rounded p-2'
+                className='border border-slate-700 rounded p-2 font-light'
                 value={usuario.usuario}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               />
             </div>
 
             <div className='flex flex-col w-full'>
-              <label htmlFor='foto'>Foto:</label>
+              <label htmlFor='foto'>Foto</label>
               <input
-                type='text'
+                type='file'
                 id='foto'
                 name='foto'
                 placeholder='Foto'
-                className='border border-slate-700 rounded p-2'
+                className='border border-slate-700 rounded p-2 font-medium'
                 value={usuario.foto}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               />
             </div>
 
             <div className='flex flex-col w-full'>
-              <label htmlFor='senha'>Senha:</label>
+              <label htmlFor='senha'>Senha</label>
               <input
                 type='password'
                 id='senha'
                 name='senha'
                 placeholder='Senha'
-                className='border border-slate-700 rounded p-2'
+                className='border border-slate-700 rounded p-2 font-light'
                 value={usuario.senha}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               />
             </div>
 
             <div className='flex flex-col w-full'>
-              <label htmlFor='confirmarSenha'>Confirme sua senha:</label>
+              <label htmlFor='confirmarSenha'>Confirme sua senha</label>
               <input
                 type='password'
                 id='confirmarSenha'
                 name='confirmarSenha'
                 placeholder='Confirmar Senha'
-                className='border border-slate-700 rounded p-2'
+                className='border border-slate-700 rounded p-2 font-light'
                 value={confirmarSenha}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setConfirmarSenha(e.target.value)}
               />
