@@ -102,7 +102,7 @@ const Cadastro = () => {
                 type='text'
                 id='usuario'
                 name='usuario'
-                placeholder='Usuario'
+                placeholder='emy@example.com'
                 className='border border-slate-700 rounded p-2 font-light'
                 value={usuario.usuario}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -128,7 +128,7 @@ const Cadastro = () => {
                 type='password'
                 id='senha'
                 name='senha'
-                placeholder='Senha'
+                placeholder='********'
                 className='border border-slate-700 rounded p-2 font-light'
                 value={usuario.senha}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -141,7 +141,7 @@ const Cadastro = () => {
                 type='password'
                 id='confirmarSenha'
                 name='confirmarSenha'
-                placeholder='Confirmar Senha'
+                placeholder='********'
                 className='border border-slate-700 rounded p-2 font-light'
                 value={confirmarSenha}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setConfirmarSenha(e.target.value)}
