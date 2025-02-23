@@ -39,13 +39,13 @@ const Login = () => {
   return (
     <>
         {/* Form Login */}
-      <div className='backgroundImg flex items-center justify-center h-screen font-bold'>
+      <div className='backgroundImg grid items-center justify-center h-screen font-bold'>
 
                 <form className='formLogin__bg class__extra flex flex-col w-full max-w-md gap-4 p-6 bg-white rounded shadow'
                 onSubmit={handleSubmit}>
 
                     <h2 className='text-center text-5xl'>Entrar</h2>
-                    <div className='flex flex-col w-full font-medium'>
+                    <div className='flex flex-col font-medium'>
 
                         <label htmlFor='usuario'>Usuário</label>
                         <input
