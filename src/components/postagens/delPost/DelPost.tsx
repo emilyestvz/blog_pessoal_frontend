@@ -3,9 +3,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { RotatingLines } from 'react-loader-spinner';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useContext } from 'react';
-import { usePostagem } from '../../hooks/usePost';
 import { ToastAlert } from '../../../utils/ToastAlert';
 import { toast } from 'react-toastify';
+import { usePostagem } from '../../../hooks/usePost';
 
 const DelPost = () => {
     const navigate = useNavigate();

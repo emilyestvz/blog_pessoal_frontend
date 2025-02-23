@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useContext } from "react";
-import Postagem from "../../models/Postagem";
-import { AuthContext } from "../../contexts/AuthContext";
-import { buscar, deletar } from "../../services/Service";
+import { AuthContext } from "../contexts/AuthContext";
+import Postagem from "../models/Postagem";
+import { buscar, deletar } from "../services/Service";
 
 export const usePostagem = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
