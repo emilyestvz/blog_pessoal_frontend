@@ -4,7 +4,7 @@ import { AuthContext } from "../../contexts/AuthContext"
 import styles from './Nav.module.css'
 import { ToastAlert } from "../../utils/ToastAlert"
 
-const Component = () => {
+const ComponentNav = () => {
 
     const navigate = useNavigate()
 
@@ -48,4 +48,4 @@ const Component = () => {
   )
 }
 
-export default Component
+export default ComponentNav

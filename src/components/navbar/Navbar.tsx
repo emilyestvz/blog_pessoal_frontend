@@ -1,9 +1,9 @@
-import Component from './ComponentNav'
+import ComponentNav from './ComponentNav'
 
 const Navbar = () => {
 
   return (
-    <Component/>
+    <ComponentNav />
   )
 }
 

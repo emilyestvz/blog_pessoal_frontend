@@ -13,6 +13,7 @@ const ComponentFooter = () => {
 
     if (usuario.token !== '') {
 
+        component = (
         <div className='flex justify-center text-white' style={{backgroundColor: '#0F0F0F'}}>
         <div className='container flex flex-col items-center py-4'>
             <p className='text-lg font-mono'>Todos os direitos reservados &copy; {data} - Emily Cristiny Dias</p>
@@ -26,7 +27,7 @@ const ComponentFooter = () => {
             </div>
         </div>
     </div>
-    }
+    )}
 
   return (
     <>
