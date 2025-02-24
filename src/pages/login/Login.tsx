@@ -52,10 +52,11 @@ const Login = () => {
                             id='usuario'
                             name='usuario'
                             placeholder='Digite o seu usuário'
-                            className='border-1 border-neutral-950 rounded p-2 font-light bg-neutral-900'
+                            className='border-b border-gray-300 outline-none p-1 bg-transparent font-light'
                             value={usuarioLogin.usuario}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
                     </div>
+
 
                     <div className='flex flex-col w-full font-medium'>
                         <label htmlFor='senha'>Senha</label>
@@ -64,7 +65,7 @@ const Login = () => {
                             id='senha'
                             name='senha'
                             placeholder='Digite sua senha'
-                            className='border-1 border-neutral-950 rounded p-2 font-light bg-neutral-900'
+                            className='border-b border-gray-300 outline-none p-1 bg-transparent font-light'
                             value={usuarioLogin.senha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
                     </div>
@@ -86,7 +87,7 @@ const Login = () => {
                     {/* Botão para Entrar com Carregamento de animação */}
                     <button 
                         type='submit'
-                        className='button-config rounded flex justify-center 
+                        className='m-4 button-config rounded flex justify-center 
                         hover:custom-gray transition-colors text-white w-2/2 py-2 self-center'>
                         {isLoading? (
                             <RotatingLines
@@ -99,11 +100,9 @@ const Login = () => {
                             
                     </button>
 
-                    {/* Borda de separação */}
-                    <hr className='border-neutral-950 w-full' />
 
                     {/* Link para cadastro */}
-                    <p className='text-center font-medium'>
+                    <p className='text-center font-medium m-5'>
                         Ainda não tem uma conta?{' '}
                         <Link to='/cadastro' className='text-red-400 hover:underline'>
                         Cadastre-se</Link>
