@@ -103,7 +103,7 @@ const Login = () => {
                     <hr className='border-neutral-950 w-full' />
 
                     {/* Link para cadastro */}
-                    <p className='text-center'>
+                    <p className='text-center font-medium'>
                         Ainda não tem uma conta?{' '}
                         <Link to='/cadastro' className='text-red-400 hover:underline'>
                         Cadastre-se</Link>
