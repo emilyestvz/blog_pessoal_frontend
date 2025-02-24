@@ -69,11 +69,25 @@ const Login = () => {
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}/>
                     </div>
 
+                    {/* Checkbox para Lembrar-me */}
+                    <div className='flex items-center gap-2 font-extralight text-sm'>
+                        <input
+                            type='checkbox'
+                            id='lembrar'
+                            name='lembrar'
+                            className='border-2 border-slate-700 rounded p-2'/>
+                        <label htmlFor='lembrar'>Lembrar-me</label>
+
+                        {/* Link para Esqueci minha senha */}
+                        <Link to='/esqueci-senha' className='ml-15 hover:underline'>Esqueceu sua senha?</Link>
+                    </div>
+
+                        
                     {/* Botão para Entrar com Carregamento de animação */}
                     <button 
                         type='submit'
                         className='button-config rounded flex justify-center 
-                        hover:custom-gray transition-colors text-white w-1/2 py-2 self-center'>
+                        hover:custom-gray transition-colors text-white w-2/2 py-2 self-center'>
                         {isLoading? (
                             <RotatingLines
                             strokeColor="white"
