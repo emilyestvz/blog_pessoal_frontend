@@ -1,10 +1,9 @@
-import { LineWave } from 'react-loader-spinner'
+import { LineWave, RotatingLines } from 'react-loader-spinner'
 import './Login.css'
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import UsuarioLogin from '../../models/UsuarioLogin';
 import { AuthContext } from '../../contexts/AuthContext';
-import Swal from 'sweetalert2';
 
 const Login = () => {
     // Hooks
@@ -75,16 +74,15 @@ const Login = () => {
                         type='submit'
                         className='button-config rounded flex justify-center 
                         hover:custom-gray transition-colors text-white w-1/2 py-2 self-center'>
-                        {isLoading?
-                            <LineWave
-                            visible={true}
-                            height='25'
-                            width=''
-                            color='#736262'
-                            ariaLabel='line-wave-loading'
-                            wrapperStyle={{}}/>
-                            :
-                            <span>Entrar</span>}
+                        {isLoading? (
+                            <RotatingLines
+                            strokeColor="white"
+                            strokeWidth="5"
+                            animationDuration="0.75"
+                            width="24"
+                            visible={true}/> 
+                            ) : (<span>Entrar</span>)}
+                            
                     </button>
 
                     {/* Borda de separação */}
