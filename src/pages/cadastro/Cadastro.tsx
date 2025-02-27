@@ -32,12 +32,29 @@ const Cadastro = () => {
     navigate('/login')
   }
 
-  const atualizarEstado = (e: ChangeEvent<HTMLInputElement>) => {
-    setUsuario({
-      ...usuario,
-      [e.target.name]: e.target.value
+  //Função para converter arquivo antes de envia-lo
+  const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = error => reject(error);
     });
-  }
+  };
+  
+  const atualizarEstado = async (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.name === 'foto' && e.target.files) {
+      const file = e.target.files[0];
+  
+      if (file) {
+        const base64 = await fileToBase64(file); // Converte o arquivo para Base64
+        setUsuario({ ...usuario, foto: base64 });
+      }
+    } else {
+      setUsuario({ ...usuario, [e.target.name]: e.target.value });
+    }
+  };
+  
 
   const handleConfirmarSenha = (e: ChangeEvent<HTMLInputElement>) => {
     return setConfirmarSenha(e.target.value);
@@ -104,7 +121,6 @@ const Cadastro = () => {
                 name='usuario'
                 placeholder='emy@example.com'
                 className='border border-slate-700 rounded p-2 font-light'
-                value={usuario.usuario}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               />
             </div>
@@ -115,10 +131,8 @@ const Cadastro = () => {
                 type='file'
                 id='foto'
                 name='foto'
-                placeholder='Foto'
                 className='border border-slate-700 rounded p-2 font-medium'
-                value={usuario.foto}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                onChange={atualizarEstado}
               />
             </div>
 

@@ -5,6 +5,6 @@ export default interface Usuario {
     nome: string;
     usuario: string;
     senha: string;
-    foto: string;
-    postagem?: Postagem | null;
+    foto: string | File;
+    postagem?: Postagem[] | null;
 }
